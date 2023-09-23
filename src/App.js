@@ -4,6 +4,7 @@ import './App.css';
 import Login from './Login';
 import Dashboard from './Dashboard';
 import authReducer, { initialState, actionTypes } from './authReducer';
+import AuthProvider from './AuthContext';
 
 function App() {
   // const [loggedIn, setLoggedIn] = useState(false);
@@ -27,12 +28,14 @@ function App() {
   };
   return (
     <div className="App">
+        <AuthProvider>
       {state.loggedIn ? (
         // <Dashboard username={localStorage.getItem('username')} onLogout={handleLogout} />
         <Dashboard username={state.username} onLogout={handleLogout} />
       ) : (
         <Login onLogin={handleLogin} />
       )}
+      </AuthProvider>
     </div>
   );
 }

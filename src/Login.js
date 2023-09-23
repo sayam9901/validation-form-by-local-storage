@@ -1,8 +1,10 @@
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import "./login.css"
+import AuthContext from './AuthContext'; 
 
 const Login = ({ onLogin }) => {
+  // const { state, handleLogin } = useContext(AuthContext); 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [collegeName, setCollegeName] = useState('');
